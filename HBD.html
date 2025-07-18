@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>生日快樂卡片</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe8ec, #e0f7fa);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff4081;
+      margin-bottom: 10px;
+    }
+
+    .gif-container {
+      margin: 20px 0;
+    }
+
+    .controls button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #f8bbd0;
+      color: white;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background-color: #f06292;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>生日快樂！🎂</h1>
+    <p>願你的每一天都比昨天更幸福、更燦爛！<br>祝你有個充滿歡笑與驚喜的一年！</p>
+
+    <div class="gif-container">
+      <!-- ✅ 預留GIF動圖位置 -->
+      <img src="your-happy-birthday-gif.gif" alt="生日快樂 GIF" width="300">
+    </div>
+
+    <div class="controls">
+      <!-- 音樂播放控制按鈕 -->
+      <button onclick="togglePlay()">⏯️ 播放 / 暫停</button>
+      <button onclick="restartAudio()">🔁 重新播放</button>
+      <button onclick="toggleMute()">🔇 靜音 / 取消靜音</button>
+    </div>
+
+    <!-- ✅ 預留音樂播放 -->
+    <audio id="birthdaySong" autoplay>
+      <source src="happy-birthday-song.mp3" type="audio/mpeg">
+      您的瀏覽器不支援音樂播放。
+    </audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById("birthdaySong");
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    function restartAudio() {
+      audio.currentTime = 0;
+      audio.play();
+    }
+
+    function toggleMute() {
+      audio.muted = !audio.muted;
+    }
+
+    // 可選：確保手機瀏覽器也能自動播放
+    document.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    }, { once: true });
+  </script>
+
+</body>
+</html>
