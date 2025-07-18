@@ -27,62 +27,59 @@
       text-align: center;
     }
 
-    h1 {
-      color: #ff4081;
-      margin-bottom: 10px;
-    }
-
     .gif-container {
       margin: 20px 0;
     }
 
     .gif-container img {
       width: 100%;
-      max-width: 100%;
       height: auto;
       border-radius: 12px;
     }
 
     .controls {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: row;
       justify-content: center;
+      align-items: center;
       gap: 10px;
+      flex-wrap: nowrap;
       margin-top: 20px;
     }
 
     .controls button {
-      width: 120px;
-      padding: 10px;
+      width: 100px;
+      padding: 8px;
       border: none;
       border-radius: 10px;
       background-color: #3ca27a;
       color: white;
       cursor: pointer;
-      text-align: center;
-      font-size: 16px;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: background-color 0.2s;
     }
 
     .controls button:hover {
       background-color: #2a7357;
+    }
+
+    .controls button:active {
+      background-color: #3ca27a; /* 點擊時維持淺綠色 */
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <!---預留輸入文字區塊-->
-    <!-- <h1>生日快樂</h1>
-    <p>願你天天有好事發生</p> -->
-
     <div class="gif-container">
       <img src="images/BirthdayCard.gif" alt="生日GIF">
     </div>
 
     <div class="controls">
-      <button onclick="togglePlay()">⏯️ 播放 / 暫停</button>
+      <button onclick="togglePlay()">⏯️ 播放/暫停</button>
       <button onclick="restartAudio()">🔁 重新播放</button>
-      <button onclick="toggleMute()">🔇 靜音 / 取消靜音</button>
+      <button onclick="toggleMute()">🔇 靜音/取消靜音</button>
     </div>
 
     <audio id="birthdaySong" autoplay>
